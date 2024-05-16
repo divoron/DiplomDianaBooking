@@ -40,6 +40,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # local
+    'booking_app.apps.BookingAppConfig',
+
+    # 3rd-party
+    "rest_framework",
 ]
 
 MIDDLEWARE = [
