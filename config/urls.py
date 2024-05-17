@@ -24,4 +24,6 @@ urlpatterns = [
     # URL-адресов из другого модуля, что позволяет организовывать маршруты URL более модульным способом.
     path('rooms/', include('booking_app.urls.room_url')),  # Маршрут, который добавляет префикс /rooms/ ко всем
     # URL-адресам из приложения booking_app.urls.room_url.
+    path('users/', include('booking_app.urls.user_url')),  # Маршрут, который добавляет префикс /users/ ко всем
+    # URL-адресам из приложения booking_app.urls.user_url.
 ]
