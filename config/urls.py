@@ -22,4 +22,6 @@ urlpatterns = [
     path('hotels/', include('booking_app.urls.hotel_url')),  # Маршрут, который добавляет префикс /hotels/ ко
     # всем URL-адресам из приложения booking_app.urls.hotel_url. Функция include() используется для включения
     # URL-адресов из другого модуля, что позволяет организовывать маршруты URL более модульным способом.
+    path('rooms/', include('booking_app.urls.room_url')),  # Маршрут, который добавляет префикс /rooms/ ко всем
+    # URL-адресам из приложения booking_app.urls.room_url.
 ]
