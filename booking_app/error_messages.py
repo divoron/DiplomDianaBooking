@@ -13,3 +13,4 @@ USER_EMAIL_REQUIRED_ERROR = "The user email is required."
 
 BOOKING_OCCUPIED_ERROR = "This room is occupied on this date"
 
+REVIEW_COMM_LEN_ERROR = 'Your comment must be no longer than 1000 characters'

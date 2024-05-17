@@ -14,3 +14,6 @@ BOOKING_CREATED_MESSAGE = "New booking was created successfully."
 BOOKING_UPDATED_MESSAGE = "The booking was updated successfully."
 BOOKING_DELETED_MESSAGE = "The booking was deleted successfully"
 
+REVIEW_CREATED_MESSAGE = "New review was created successfully."
+REVIEW_UPDATED_MESSAGE = "The review was updated successfully."
+REVIEW_DELETED_MESSAGE = "The review was deleted successfully"
