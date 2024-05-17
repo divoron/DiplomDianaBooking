@@ -1,5 +1,6 @@
 from django.contrib import admin
 from booking_app.models.hotel_model import Hotel
+from booking_app.models.room_model import Room
 from booking_app.models.user_model import User
 
 # Класс HotelAdmin определяет пользовательские настройки отображения и взаимодействия с объектами модели Hotel
@@ -14,9 +15,17 @@ class HotelAdmin(admin.ModelAdmin):
     search_fields = ('name', 'description',)
 
 
-# Аналогичные поля и характеристики как в предыдущем классе.
+@admin.register(Room)
+class RoomAdmin(admin.ModelAdmin):
+    list_display = ('room_type', 'photos', 'price_per_night', 'available',)
+    list_filter = ('room_type', 'price_per_night', 'available',)
+    search_fields = ('room_type', 'price_per_night',)
+    # Аналогичные поля и характеристики как в предыдущем классе.
+
+
 @admin.register(User)
 class UserAdmin(admin.ModelAdmin):
     list_display = ('user_id', 'username', 'email',)
     list_filter = ('created_at', 'username', 'email',)
     search_fields = ('user_id', 'username', 'email', 'created_at',)
+    # Аналогичные поля и характеристики как в предыдущем классе.
