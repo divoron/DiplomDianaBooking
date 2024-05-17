@@ -16,14 +16,57 @@ from booking_app.models.review_model import Review
 # символов), то генерируется исключение ValidationError с соответствующими сообщениями об ошибках. В противном
 # случае, метод возвращает сам комментарий.
 
+def validate_fields(value):
+    if len(value) > 1000:
+        raise ValidationError(
+            REVIEW_COMM_LEN_ERROR
+        )
+    return value
+
+
 class ReviewSerializer(serializers.ModelSerializer):
     class Meta:
         model = Review
         fields = '__all__'
 
-    def validate_name(self, value):
-        if len(value) > 1000:
-            raise ValidationError(
-                REVIEW_COMM_LEN_ERROR
-            )
-        return value
+
+# Этот сериализатор используется для представления информации об отзыве, включая его ID, ID оставившего отзыв
+# пользователя, ID отеля, сам комментарий и рейтинг. Он также включает метод validate, который вызывает функцию
+# validate_fields для валидации полей перед сохранением.
+class ReviewInfoSerializer(serializers.ModelSerializer):
+    review = serializers.StringRelatedField()
+
+    class Meta:
+        model = Review
+        fields = [
+            'review_id',
+            'user_id',
+            'hotel_id',
+            'comment',
+            'rating'
+        ]
+
+    def validate(self, attrs):
+        return validate_fields(attrs=attrs)
+
+
+# Этот сериализатор предназначен для представления всех полей отзыва, включая дату создания отзыва и
+# последнего обновления. Он также включает метод validate, который вызывает ту же функцию validate_fields для
+# валидации полей перед сохранением.
+class AllReviewsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Review
+        fields = [
+            'review_id',
+            'user_id',
+            'hotel_id',
+            'comment',
+            'rating',
+            'created_at',
+            'updated_at',
+            'deleted_at',
+            'deleted'
+        ]
+
+    def validate(self, value):
+        return validate_fields(value=value)

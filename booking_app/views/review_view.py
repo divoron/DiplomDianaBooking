@@ -7,11 +7,11 @@ from rest_framework import status
 from rest_framework.permissions import IsAuthenticated
 
 from booking_app.models.review_model import Review
-from booking_app.serializers.review_serializer import ReviewSerializer
+from booking_app.serializers.review_serializer import ReviewSerializer, AllReviewsSerializer
 from booking_app.success_messages import REVIEW_CREATED_MESSAGE, REVIEW_UPDATED_MESSAGE, REVIEW_DELETED_MESSAGE
 
 
-class HotelListGenericView(ListAPIView):
+class ReviewListGenericView(ListAPIView):
     # Здесь определяются права доступа, требуемые для доступа к этому представлению.
     # В данном случае, используется IsAuthenticated, что означает,
     # что пользователь должен быть аутентифицирован для доступа к этим операциям.
@@ -111,4 +111,21 @@ class RetrieveReviewGenericView(RetrieveUpdateDestroyAPIView):
         )
 
 
+class ReviewByHotelListAPIView(ListAPIView):
+    # Наследуюсь от ListAPIView потому как мне нужна операция только для чтения списка объектов
+    serializer_class = AllReviewsSerializer
+    # Здесь определяются права доступа, требуемые для доступа к этому представлению.
+    # В данном случае, используется IsAuthenticated, что означает,
+    # что пользователь должен быть аутентифицирован для доступа к этим операциям.
+    permission_classes = [
+        IsAuthenticated,
+    ]
 
+    def get_queryset(self):
+        # Получаем список отзывов для каждого отеля
+        hotel_reviews = []
+        reviews = Review.objects.all()
+        for review in reviews:
+            by_hotel_reviews = Review.objects.filter(hotel_id=review.hotel_id)
+            hotel_reviews.extend(by_hotel_reviews)
+        return hotel_reviews
