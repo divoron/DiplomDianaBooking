@@ -9,3 +9,8 @@ ROOM_DELETED_MESSAGE = "The room was deleted successfully"
 USER_CREATED_MESSAGE = "New User was created successfully."
 USER_UPDATED_MESSAGE = "The User was updated successfully."
 USER_DELETED_MESSAGE = "The User was deleted successfully"
+
+BOOKING_CREATED_MESSAGE = "New booking was created successfully."
+BOOKING_UPDATED_MESSAGE = "The booking was updated successfully."
+BOOKING_DELETED_MESSAGE = "The booking was deleted successfully"
+

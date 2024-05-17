@@ -10,3 +10,6 @@ USERNAME_LEN_ERROR = "The length of the username should be between 2 and 25 char
 USER_EMAIL_LEN_ERROR = "The length of the user email must be no longer than 25 characters"
 USERNAME_REQUIRED_ERROR = "The username is required."
 USER_EMAIL_REQUIRED_ERROR = "The user email is required."
+
+BOOKING_OCCUPIED_ERROR = "This room is occupied on this date"
+
