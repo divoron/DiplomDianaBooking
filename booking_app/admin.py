@@ -2,6 +2,7 @@ from django.contrib import admin
 
 from booking_app.models.booking_model import Booking
 from booking_app.models.hotel_model import Hotel
+from booking_app.models.review_model import Review
 from booking_app.models.room_model import Room
 from booking_app.models.user_model import User
 
@@ -38,4 +39,12 @@ class BookingAdmin(admin.ModelAdmin):
     list_display = ('booking_id', 'user_id', 'room_id', 'check_in_date', 'check_out_date', 'created_at',)
     list_filter = ('user_id', 'room_id', 'check_in_date', 'check_out_date', 'created_at',)
     search_fields = ('user_id', 'room_id', 'check_in_date', 'check_out_date', 'created_at',)
+    # Аналогичные поля и характеристики как в предыдущем классе.
+
+
+@admin.register(Review)
+class ReviewAdmin(admin.ModelAdmin):
+    list_display = ('review_id', 'user_id', 'hotel_id', 'comment',)
+    list_filter = ('review_id', 'user_id', 'hotel_id',)
+    search_fields = ('created_at', 'review_id', 'user_id', 'hotel_id', 'comment',)
     # Аналогичные поля и характеристики как в предыдущем классе.
