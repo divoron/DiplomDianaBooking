@@ -15,8 +15,11 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('hotels/', include('BookingDiploma.urls.hotel_url')),  # Маршрут, который добавляет префикс /hotels/ ко
+    # всем URL-адресам из приложения BookingDiploma.urls.hotel_url. Функция include() используется для включения
+    # URL-адресов из другого модуля, что позволяет организовывать маршруты URL более модульным способом.
 ]
