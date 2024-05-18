@@ -14,9 +14,9 @@ class Hotel(models.Model):
     deleted = models.BooleanField(default=False)
 
     def __str__(self):
-        return (f'Отель: {self.name}/n'
-                f'Расположение: {self.location}/n'
-                f'Рейтинг: {self.rating}'
+        return (f'Отель: {self.name} '
+                f'Расположение: {self.location} '
+                f'Рейтинг: {self.rating} '
                 f'Фото: {self.photos}')
 
     # Метод __str__ определен для объектов этой модели, чтобы возвращать строковое представление объекта,

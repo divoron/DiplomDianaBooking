@@ -18,8 +18,8 @@ class Room(models.Model):
     deleted = models.BooleanField(default=False)
 
     def __str__(self):
-        return (f'Тип номера: {self.room_type}/n'
-                f'Цена за ночь: {self.price_per_night}/n'
+        return (f'Тип номера: {self.room_type} '
+                f'Цена за ночь: {self.price_per_night} '
                 f'Свободен: {self.available}')
     # Метод __str__ определен для объектов этой модели, чтобы возвращать строковое представление объекта,
     # которым будет тип номера, его цена за ночь и свободен ли он.

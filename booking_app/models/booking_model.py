@@ -13,7 +13,8 @@ class Booking(models.Model):
     deleted = models.DateField(blank=True)
 
     def __str__(self):
-        return f"User_id: {self.user_id}, room_id: {self.room_id}"
+        return (f"User_id: {self.user_id} "
+                f"Room_id: {self.room_id}")
 
 # Метод __str__ определен для объектов этой модели, чтобы возвращать строковое представление объекта,
 # которым будет : id забронировавшего пользователя и id номера(комнаты).

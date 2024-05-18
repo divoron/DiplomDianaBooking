@@ -11,8 +11,8 @@ class User(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return (f'ID: {self.user_id}/n'
-                f'Username: {self.username}/n'
+        return (f'ID: {self.user_id} '
+                f'Username: {self.username} '
                 f'Email: {self.email}')
 
     # Метод __str__ определен для объектов этой модели, чтобы возвращать строковое представление объекта,

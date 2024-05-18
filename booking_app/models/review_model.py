@@ -13,9 +13,9 @@ class Review(models.Model):
     deleted = models.DateField(blank=True)
 
     def __str__(self):
-        return (f'ID отзыва: {self.review_id}/n'
-                f'ID пользователя: {self.user_id}/n'
-                f'ID отеля: {self.hotel_id}/n'
+        return (f'ID отзыва: {self.review_id} '
+                f'ID пользователя: {self.user_id} '
+                f'ID отеля: {self.hotel_id} '
                 f'Комментарий: {self.comment}')
     # Метод __str__ определен для объектов этой модели, чтобы возвращать строковое представление объекта,
     # которым будет ID отзыва, ID пользователя, ID отеля и сам комментарий.
