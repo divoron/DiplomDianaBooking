@@ -6,7 +6,7 @@ class User(models.Model):
     username = models.CharField(max_length=25, unique=True)
     email = models.CharField(max_length=25, unique=True)
     password = models.CharField(max_length=50)
-    bookings = models.ForeignKey('Booking', on_delete=models.SET_NULL, null=True)
+    bookings = models.ForeignKey('Booking', on_delete=models.SET_NULL, null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
