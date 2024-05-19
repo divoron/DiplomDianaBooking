@@ -1,5 +1,6 @@
 from django.urls import path
 from booking_app.views.hotel_view import HotelListGenericView, RetrieveHotelGenericView
+from booking_app.views.room_view import HotelFreeRoomListAPIView
 
 urlpatterns = [path("", HotelListGenericView.as_view()),
                # Маршрут для списка всех отелей. Пустая строка в URL означает, что это базовый URL для списка
@@ -10,4 +11,5 @@ urlpatterns = [path("", HotelListGenericView.as_view()),
                # качестве идентификатора отеля. Этот идентификатор будет передан в представление для получения,
                # обновления или удаления соответствующего отеля. Представление RetrieveHotelGenericView также
                # определено как классовое представление.
+               path("free_rooms/", HotelFreeRoomListAPIView.as_view()),
                ]

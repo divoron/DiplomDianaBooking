@@ -29,7 +29,7 @@ class RoomInfoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Room
         fields = [
-            'id',
+            'room_id',
             'hotel_id',
             'room_type',
             'photos',
@@ -48,7 +48,7 @@ class AllRoomsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Room
         fields = [
-            'id',
+            'room_id',
             'hotel_id',
             'room_type',
             'photos',
