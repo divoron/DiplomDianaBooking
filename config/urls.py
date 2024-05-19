@@ -28,4 +28,6 @@ urlpatterns = [
     # URL-адресам из приложения booking_app.urls.user_url.
     path('reviews/', include('booking_app.urls.review_url')),  # Маршрут, который добавляет префикс /reviews/ ко всем
     # URL-адресам из приложения booking_app.urls.review_url.)
+    path('bookings/', include('booking_app.urls.booking_url')),  # Маршрут, который добавляет префикс /bookings/ ко всем
+    # URL-адресам из приложения booking_app.urls.booking_url.)
 ]
