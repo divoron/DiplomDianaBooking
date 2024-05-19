@@ -70,7 +70,7 @@ class UserInfoSerializer(serializers.ModelSerializer):
         return validate_fields(attrs=attrs)
 
 
-# Этот сериализатор предназначен для представления всех полей модели пользователя, включая дату создания
+# Этот сериализатор предназначен для представления всех полей модели пользователя(кроме пароля), включая дату создания
 # юзера и последнего обновления. Он также включает метод validate, который вызывает ту же функцию validate_fields для
 # валидации полей перед сохранением.
 class AllUsersSerializer(serializers.ModelSerializer):
@@ -80,7 +80,6 @@ class AllUsersSerializer(serializers.ModelSerializer):
             'user_id',
             'username',
             'email',
-            'password',
             'bookings',
             'created_at',
             'updated_at',

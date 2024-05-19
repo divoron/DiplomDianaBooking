@@ -18,7 +18,7 @@ class Room(models.Model):
     deleted = models.BooleanField(default=False)
 
     def __str__(self):
-        return (f'Отель: {self.hotel_id}'
+        return (f'{self.hotel_id}'
                 f'Тип номера: {self.room_type} '
                 f'Цена за ночь: {self.price_per_night} '
                 f'Свободен: {self.available}')

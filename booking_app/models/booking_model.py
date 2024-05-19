@@ -5,12 +5,12 @@ class Booking(models.Model):
     booking_id = models.AutoField(primary_key=True, unique=True)
     user_id = models.ForeignKey('User', on_delete=models.SET_NULL, null=True)
     room_id = models.ForeignKey('Room', on_delete=models.SET_NULL, null=True)
-    check_in_date = models.DateField(auto_now_add=True)
+    check_in_date = models.DateField()
     check_out_date = models.DateField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    deleted_at = models.DateTimeField()
-    deleted = models.DateField(blank=True)
+    deleted_at = models.DateTimeField(null=True, blank=True)
+    deleted = models.BooleanField(default=False)
 
     def __str__(self):
         return (f"User_id: {self.user_id} "
